@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Center(
-        child: Container(
-          child: const Text("Welcome to Flutter"),
-        ),
-      ),
+    return const MaterialApp(
+      home: HomePage(),
     );
   }
 }
