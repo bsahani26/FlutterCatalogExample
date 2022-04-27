@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_catalog/utils/routes.dart';
 
-class LoginPage extends StatelessWidget {
+import '../utils/routes.dart';
+
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String _name = "";
+  bool _buttonClicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +28,7 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Text("Welcome",
+            Text("Welcome $_name",
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
             SizedBox(
               height: 20.0,
@@ -32,22 +41,57 @@ class LoginPage extends StatelessWidget {
                   TextFormField(
                     decoration: InputDecoration(
                         hintText: "Enter user name", labelText: "Username"),
+                    onChanged: (value) {
+                      _name = value.trim();
+                      setState(() {});
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
-                        hintText: "Enter user password", labelText: "Password"),
+                        hintText: "Enter password", labelText: "Password"),
                   ),
                   SizedBox(
                     height: 40.0,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
+                  InkWell(
+                    onTap: () async {
+                      setState(() {
+                        _buttonClicked = !_buttonClicked;
+                      });
+                      await Future.delayed(Duration(seconds: 1));
                       Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
-                    child: Text("Login"),
-                    style: ElevatedButton.styleFrom(minimumSize: Size(100, 40)),
+                    child: AnimatedContainer(
+                      duration: Duration(seconds: 1),
+                      width: _buttonClicked ? 50 : 150,
+                      height: 50,
+                      alignment: Alignment.center,
+                      child: _buttonClicked
+                          ? Icon(Icons.done, color: Colors.white)
+                          : Text(
+                              "Login",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.white),
+                            ),
+                      decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          // shape: _buttonClicked
+                          //     ? BoxShape.circle
+                          //     : BoxShape.rectangle
+                          borderRadius:
+                              BorderRadius.circular(_buttonClicked ? 50 : 8)),
+                    ),
                   )
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  //   },
+                  //   child: Text("Login"),
+                  //   style: ElevatedButton.styleFrom(minimumSize: Size(100, 40)),
+                  // )
                 ],
               ),
             )
