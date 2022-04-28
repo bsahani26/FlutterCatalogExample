@@ -1,4 +1,4 @@
-package com.bikash.test.my_flutter_app
+package com.bikash.fluttercatalog
 
 import io.flutter.embedding.android.FlutterActivity
 
