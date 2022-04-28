@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 import '../utils/routes.dart';
 
@@ -20,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         _buttonClicked = !_buttonClicked;
       });
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       await Navigator.pushNamed(context, MyRoutes.homeRoute);
       setState(() {
         _buttonClicked = !_buttonClicked;
@@ -41,12 +40,13 @@ class _LoginPageState extends State<LoginPage> {
                 "assets/images/login_image.png",
                 fit: BoxFit.cover,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Text("Welcome $_name",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-              SizedBox(
+                  style: const TextStyle(
+                      fontSize: 28, fontWeight: FontWeight.bold)),
+              const SizedBox(
                 height: 20.0,
               ),
               Padding(
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: "Enter user name", labelText: "Username"),
                       onChanged: (value) {
                         _name = value.trim();
@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextFormField(
                       obscureText: true,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: "Enter password", labelText: "Password"),
                       validator: (value) {
                         if (value?.isEmpty ?? false) {
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40.0,
                     ),
                     Material(
@@ -92,13 +92,13 @@ class _LoginPageState extends State<LoginPage> {
                           splashColor: Colors.white,
                           onTap: () => {_moveToHome(context)},
                           child: AnimatedContainer(
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             width: _buttonClicked ? 50 : 150,
                             height: 50,
                             alignment: Alignment.center,
                             child: _buttonClicked
-                                ? Icon(Icons.done, color: Colors.white)
-                                : Text(
+                                ? const Icon(Icons.done, color: Colors.white)
+                                : const Text(
                                     "Login",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
