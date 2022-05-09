@@ -39,8 +39,8 @@ class CatalogItem extends StatelessWidget {
                                 CatalogTheme.darkBluishColor),
                             shape: MaterialStateProperty.all(
                                 const StadiumBorder())),
-                        child: "Buy".text.make())
-                    .px16()
+                        child: "Add to cart".text.make())
+                    .px8()
               ],
             )
           ],

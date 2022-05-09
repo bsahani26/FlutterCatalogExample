@@ -16,7 +16,9 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: CatalogTheme.creamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -32,8 +34,8 @@ class HomeDetailsPage extends StatelessWidget {
                             CatalogTheme.darkBluishColor),
                         shape:
                             MaterialStateProperty.all(const StadiumBorder())),
-                    child: "Buy".text.make())
-                .wh(100, 50)
+                    child: "Add to cart".text.make())
+                .wh(120, 50)
                 .px16()
           ],
         ).p32(),
@@ -62,6 +64,11 @@ class HomeDetailsPage extends StatelessWidget {
                         .textStyle(const TextStyle(color: Colors.grey))
                         .make(),
                     10.heightBox,
+                    "This is product is made by india and have good quality of material used inside this. This product have several variety based on color, size and memory capacity"
+                        .text
+                        .textStyle(const TextStyle(color: Colors.grey))
+                        .make()
+                        .p16()
                   ],
                 ).py64(),
               ),
