@@ -29,7 +29,7 @@ class CatalogTheme {
       appBarTheme: const AppBarTheme(
         color: Colors.black,
         elevation: 0.0,
-        titleTextStyle: TextStyle(color: Colors.black),
+        titleTextStyle: TextStyle(color: Colors.white),
         iconTheme: IconThemeData(color: Colors.white),
       ));
 

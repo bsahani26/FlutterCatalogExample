@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -8,10 +7,10 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Theme.of(context).canvasColor,
         title: const Text("Cart"),
       ),
-      backgroundColor: CatalogTheme.creamColor,
+      backgroundColor: Theme.of(context).canvasColor,
     );
   }
 }
