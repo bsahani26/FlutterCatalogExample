@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../widgets/themes.dart';
-
 class CatalogImage extends StatelessWidget {
   final String image;
 
@@ -17,6 +15,6 @@ class CatalogImage extends StatelessWidget {
         .color(Theme.of(context).canvasColor)
         .make()
         .p16()
-        .wh40(context);
+        .wPCT(context: context, widthPCT: context.isMobile ? 40 : 20);
   }
 }
